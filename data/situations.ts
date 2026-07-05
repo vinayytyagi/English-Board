@@ -1,0 +1,126 @@
+import type { Situation } from "@/lib/types";
+
+export const situations: Situation[] = [
+  {
+    id: "sit-pitch",
+    title: "Pitch your idea",
+    lines: [
+      "In one line: we help [target user] [do what] without [pain].",
+      "The reason this matters now is [timing].",
+      "Where we are today is [traction].",
+      "If this sounds interesting, I'd love to show you more.",
+    ],
+    dos: ["Lead with the outcome", "Keep it to 2–3 sentences", "Invite a question"],
+    donts: ["Open with jargon", "List every feature", "Ramble"],
+    tags: ["pitch"],
+  },
+  {
+    id: "sit-sales-demo",
+    title: "Sales / demo call",
+    lines: [
+      "Before I show you anything, can I ask what you're hoping to solve?",
+      "Here's how this works — I'll show you, then you tell me what's missing.",
+      "Based on what you said, this part will matter most to you.",
+      "What questions do you have so far?",
+    ],
+    dos: ["Ask about their problem first", "Tie every feature to their need", "Pause for questions"],
+    donts: ["Demo every feature", "Talk more than you listen", "Skip the discovery step"],
+    tags: ["sales"],
+  },
+  {
+    id: "sit-standup",
+    title: "Team standup",
+    lines: [
+      "Yesterday I worked on [task]. Today I'm focused on [task].",
+      "I'm blocked on [issue] — can someone help after this?",
+      "No blockers today, on track for [goal].",
+    ],
+    dos: ["Be specific and brief", "Name blockers clearly", "Say what you need"],
+    donts: ["Give a long status report", "Bury the blocker", "Repeat yesterday's update"],
+    tags: ["meetings", "team"],
+  },
+  {
+    id: "sit-feedback",
+    title: "Giving feedback",
+    lines: [
+      "Can I share some quick feedback on [thing]?",
+      "One thing that worked well was [strength]. One thing to improve is [area].",
+      "Next time, it would help if [specific ask].",
+    ],
+    dos: ["Ask permission first", "Be specific, not vague", "Balance strengths and gaps"],
+    donts: ["Make it personal", "Give feedback in front of others", "Be vague ('just do better')"],
+    tags: ["team", "management"],
+  },
+  {
+    id: "sit-disagree",
+    title: "Politely disagree",
+    lines: [
+      "I see it a little differently — can I share why?",
+      "That's a fair point. My concern is [concern].",
+      "I'm not fully convinced yet. Help me understand [question].",
+    ],
+    dos: ["Acknowledge their point first", "Use 'I' statements", "Offer your reasoning"],
+    donts: ["Say 'you're wrong'", "Interrupt", "Get personal"],
+    tags: ["meetings"],
+  },
+  {
+    id: "sit-negotiate",
+    title: "Negotiating",
+    lines: [
+      "Here's what would make this work for us: [terms].",
+      "I understand your position. Can we meet in the middle at [proposal]?",
+      "If we can agree on [term], I'm happy to move forward today.",
+    ],
+    dos: ["Know your walk-away point", "Stay calm and friendly", "Ask for what you want directly"],
+    donts: ["Apologize for asking", "Agree just to avoid discomfort", "Rush to fill silence"],
+    tags: ["sales", "negotiation"],
+  },
+  {
+    id: "sit-ask",
+    title: "Asking for something",
+    lines: [
+      "I'd like to ask for [ask] — here's why it matters.",
+      "Would it be possible to get [ask] by [date]?",
+      "This would really help me [reason]. Is that something we can do?",
+    ],
+    dos: ["State the ask clearly and early", "Give a short reason", "Suggest a timeline"],
+    donts: ["Bury the ask at the end", "Over-explain or apologize", "Say 'just wanted to ask'"],
+    tags: ["communication"],
+  },
+  {
+    id: "sit-follow-up",
+    title: "Following up",
+    lines: [
+      "Just circling back on [topic] — any update on your end?",
+      "Wanted to follow up before [deadline]. Where do things stand?",
+      "No pressure — just checking if you had a chance to look at [item].",
+    ],
+    dos: ["Reference the last conversation", "Give a light reason to reply", "Keep it short"],
+    donts: ["Sound impatient", "Repeat the whole original message", "Follow up too often"],
+    tags: ["sales", "communication"],
+  },
+  {
+    id: "sit-tough-questions",
+    title: "Handling tough questions",
+    lines: [
+      "That's a fair question. Here's how we think about it: [answer].",
+      "I don't have that number yet, but here's what I do know: [known fact].",
+      "Good challenge. The honest answer is [honest answer].",
+    ],
+    dos: ["Pause before answering", "Be honest if you don't know", "Stay calm and direct"],
+    donts: ["Get defensive", "Make up an answer", "Deflect the question"],
+    tags: ["pitch", "fundraising"],
+  },
+  {
+    id: "sit-networking-smalltalk",
+    title: "Networking small talk",
+    lines: [
+      "So what brought you to this event?",
+      "That's interesting — how did you get into that?",
+      "Would love to stay in touch. Can I grab your contact?",
+    ],
+    dos: ["Ask open questions", "Listen more than you talk", "End with a clear next step"],
+    donts: ["Pitch too early", "Dominate the conversation", "Forget to follow up later"],
+    tags: ["networking", "small-talk"],
+  },
+];
