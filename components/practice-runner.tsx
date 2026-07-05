@@ -1,12 +1,11 @@
 "use client";
-import { useMemo, useState } from "react";
-import { pickDailySet, daySeed } from "@/lib/dailyPick";
-import { todayStr } from "@/lib/streak";
+import { useState } from "react";
+import { useTodaySet } from "@/lib/useTodaySet";
 import { useProgress } from "@/lib/useProgress";
 import { Card, PracticeButton } from "@/components/ui";
 
 export function PracticeRunner() {
-  const items = useMemo(() => pickDailySet(daySeed(todayStr()), 4), []);
+  const items = useTodaySet();
   const { streak, practicedToday, markPracticed } = useProgress();
   const [index, setIndex] = useState(0);
   const item = items[index];

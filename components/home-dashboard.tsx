@@ -1,14 +1,12 @@
 "use client";
 import Link from "next/link";
-import { useMemo } from "react";
-import { pickDailySet, daySeed } from "@/lib/dailyPick";
-import { todayStr } from "@/lib/streak";
+import { useTodaySet } from "@/lib/useTodaySet";
 import { useProgress } from "@/lib/useProgress";
 import { NAV_ITEMS } from "@/components/nav";
 import { Card } from "@/components/ui";
 
 export function HomeDashboard() {
-  const today = useMemo(() => pickDailySet(daySeed(todayStr()), 4), []);
+  const today = useTodaySet();
   const { streak, practicedToday } = useProgress();
   const doneCount = today.filter((i) => practicedToday.includes(i.id)).length;
 

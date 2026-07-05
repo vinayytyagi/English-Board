@@ -21,20 +21,26 @@ function pool(): PracticeItem[] {
   return items;
 }
 
-export function pickDailySet(seed: number, count = 4): PracticeItem[] {
-  const items = pool();
+function mulberry32(a: number) {
+  return function () {
+    a |= 0; a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+export function seededPick<T>(items: T[], seed: number, count: number): T[] {
   if (items.length === 0) return [];
-  const step = 7; // coprime-ish stride for spread
-  const picked: PracticeItem[] = [];
-  const used = new Set<number>();
-  let idx = ((seed % items.length) + items.length) % items.length;
-  while (picked.length < Math.min(count, items.length)) {
-    if (!used.has(idx)) {
-      used.add(idx);
-      picked.push(items[idx]);
-    }
-    idx = (idx + step) % items.length;
-    if (used.size === items.length) break;
+  const rand = mulberry32(seed);
+  const shuffled = items.slice();
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  return picked;
+  return shuffled.slice(0, Math.min(count, items.length));
+}
+
+export function pickDailySet(seed: number, count = 4): PracticeItem[] {
+  return seededPick(pool(), seed, count);
 }
